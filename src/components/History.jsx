@@ -1,17 +1,21 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { HiArrowLeft } from 'react-icons/hi';
+import { GiReturnArrow } from 'react-icons/gi';
 
 const HomeButton = () => {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push("/");
+        history.push("/Home");
     }
 
     return (
-        <div>
-            <HiArrowLeft className="left--icons mb-3" onClick={handleClick} />
+        <div className="icons">
+            <GiReturnArrow
+                className="left--icons mb-3" 
+                onClick={handleClick} 
+                title="Allez sur la page d'acceuil"
+            />
         </div>
     );
 }

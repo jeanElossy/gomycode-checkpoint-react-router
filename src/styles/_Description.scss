@@ -1,9 +1,11 @@
 .description{
-
     padding-left: 0 !important;
     
     .video__annonce{
         border: 1px solid red;
         height: 500px;
+    }
+    .text--description, .video__annonce{
+        margin-top: 6rem;
     }
 }
