@@ -1,0 +1,18 @@
+.header{
+    background: rgb(208, 236, 227) !important;
+    box-shadow: 5px 0 10px rgb(110, 109, 109);
+    position: fixed;
+    z-index: 5;
+    form{
+        input{
+            &::placeholder{
+                font-style: italic;
+            }
+        }
+    }
+}
+@media screen and (min-width:572px) {
+    .line{
+        margin: 20px !important;
+    }
+}
