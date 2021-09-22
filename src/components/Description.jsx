@@ -15,7 +15,7 @@ export default function Description({match, data}) {
             <div className="container">
                 <History />
                 <div className="row">
-                    <div className="col-12 col-md-7 video__annonce">
+                    <div className="col-12 col-md-4 video__annonce">
                         
                             <ReactPlayer 
                                 url={film.linkAnnouncement}

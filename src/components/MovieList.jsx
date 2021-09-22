@@ -98,7 +98,7 @@ const MovieList = ({match}) => {
   const handleRating = (e) =>{
     setNum(e.target.value);
   } */
-
+ 
 
   const handleAdd = (film) => {
     const newFilms = [...films];
@@ -106,17 +106,6 @@ const MovieList = ({match}) => {
 
     setFilms(newFilms)
   }
-
-  
- let pageDetails = films.map((film) => {
-    return (
-      <div key={film.id}>
-        <Description description={film.description} announcement={film.linkAnnouncement} />
-      </div>
-    )
-  })
-
-
 
   return (
     <div>
@@ -127,19 +116,22 @@ const MovieList = ({match}) => {
       />
       
       <AddCard add={handleAdd} />
-      <div className="container">
-        <div className="row">
-          
+      <div className="container ">
+        <div className="d-flex flex-wrap gap-5">
           {films
             .filter((film) => film.title.toLowerCase().includes(filter.toLocaleLowerCase()))
             .sort((a, b) => b.id - a.id)
             .map((film) => (
-              <Link to={`${match.url}/${film.id}`}>
-                <MovieCard film={film} key={film.id} pageDetails={pageDetails}/>
+
+              <Link to={`${match.url}/${film.urlFilm}`}>
+                <MovieCard film={film} key={film.id} />
+                
               </Link>
+
           ))}
-          </div>
+        </div>
           <Route path={`${match.url}/:filmId`} render= {(props) => <Description  data={films} {...props}/>}/>
+        
       </div>
     </div>
   );
