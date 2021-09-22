@@ -9,7 +9,7 @@ const MovieCard = ({film}) => {
 
   return (
     <>
-      <div className="box col-md-12 position-relative ">
+      <div className="box position-relative ">
           
             <ReactPlayer 
               url={film.urlFilm}
