@@ -6,7 +6,8 @@ const HomeButton = () => {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push("/Home");
+        //history.push("/Home");
+        history.goBack();
     }
 
     return (

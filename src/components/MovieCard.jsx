@@ -1,9 +1,9 @@
 import React from 'react';
 import { Player } from "video-react";
 //import ReactPlayer from 'react-player'
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 //import ReactStars from "react-rating-stars-component";
-import Description from "./Description";
+//import Description from "./Description";
 
 
 const MovieCard = ({film, match, key}) => {
@@ -17,10 +17,12 @@ const MovieCard = ({film, match, key}) => {
   }
   // 
 
+  // <Link to={`${match.url}/${key}`}></Link>
+
   return (
     <>
       <div className="col-12 box position-relative ">
-        <Link to={`${match.url}/${key}`}>
+          <Link to="/Description" >
           <Player 
             url={film.urlFilm}
             controls={true}
@@ -32,21 +34,20 @@ const MovieCard = ({film, match, key}) => {
             BigPlayButton={true}
             onClick={handleClick} 
           />
-        </Link>
+          </Link>
         <div className="d-flex mt-3 justify-content-between">
           <h1 className="h5">{film.title}</h1>
           <span>{film.rating}</span>
         </div>
 
 
-        <Route exact path={`${match.url}/:filmId`} render={(props) => <Description data={film} {...props}/>} />
-      </div>
+        </div>
     </>
-  );
-}
+    );
+  }
+  
+  
+  export default MovieCard;
+  
 
-
-export default MovieCard;
-
-// 
-// 
+  //<Route exact path={`${match.url}/:filmId`} render={(props) => <Description data={film} {...props}/>} />
