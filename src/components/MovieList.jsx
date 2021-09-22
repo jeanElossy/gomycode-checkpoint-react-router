@@ -4,9 +4,11 @@ import MovieCard from './MovieCard';
 import NavBar from './NavBar';
 import AddCard from './AddCard';
 import ReactStars from "react-rating-stars-component";
-//import Description from './Description';
+import Description from './Description';
+import {Link, Route} from "react-router-dom";
 
-const MovieList = () => {
+
+const MovieList = ({match}) => {
 
   const etoiles = <ReactStars />;
 
@@ -106,14 +108,14 @@ const MovieList = () => {
   }
 
   
- /* let pageDetails = films.map((film) => {
+ let pageDetails = films.map((film) => {
     return (
       <div key={film.id}>
         <Description description={film.description} announcement={film.linkAnnouncement} />
       </div>
     )
   })
-*/
+
 
 
   return (
@@ -127,13 +129,17 @@ const MovieList = () => {
       <AddCard add={handleAdd} />
       <div className="container">
         <div className="row">
+          
           {films
             .filter((film) => film.title.toLowerCase().includes(filter.toLocaleLowerCase()))
             .sort((a, b) => b.id - a.id)
             .map((film) => (
-            <MovieCard film={film} key={film.id} />
+              <Link to={`${match.url}/${film.id}`}>
+                <MovieCard film={film} key={film.id} pageDetails={pageDetails}/>
+              </Link>
           ))}
-        </div>
+          </div>
+          <Route path={`${match.url}/:filmId`} render= {(props) => <Description  data={films} {...props}/>}/>
       </div>
     </div>
   );

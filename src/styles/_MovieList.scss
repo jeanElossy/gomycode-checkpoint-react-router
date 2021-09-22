@@ -1,0 +1,14 @@
+@media screen and (max-width: 572px)
+{
+  .box{
+    width: 100%;
+  }
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    &:hover{
+        color: black;
+    }
+}

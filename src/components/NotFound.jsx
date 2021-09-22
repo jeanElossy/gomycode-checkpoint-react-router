@@ -9,7 +9,7 @@ export default function NotFound() {
                 <h2 className="h4">Erreur 404 !</h2>
             </div>
             <div>
-                <Link exact to="/Home">
+                <Link exact to="/home">
                     <button className="btn btn-primary p-2" >Aller sur la page d'acceuil</button>
                 </Link>
             </div>
