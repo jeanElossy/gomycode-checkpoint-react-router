@@ -1,22 +1,26 @@
 import React from 'react';
 import { Player } from "video-react";
 //import ReactPlayer from 'react-player'
-import {NavLink, Route} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 //import ReactStars from "react-rating-stars-component";
 import Description from "./Description";
 
 
-const MovieCard = ({film, match}) => {
+const MovieCard = ({film, match, key}) => {
+
+  console.log(match)
+
 
   //let des = film.nom;
   const handleClick = () => {
       alert("hello")
   }
+  // 
 
   return (
     <>
       <div className="col-12 box position-relative ">
-        <NavLink to={`${match.url}/${film.id}`}>
+        <Link to={`${match.url}/${key}`}>
           <Player 
             url={film.urlFilm}
             controls={true}
@@ -28,7 +32,7 @@ const MovieCard = ({film, match}) => {
             BigPlayButton={true}
             onClick={handleClick} 
           />
-        </NavLink>
+        </Link>
         <div className="d-flex mt-3 justify-content-between">
           <h1 className="h5">{film.title}</h1>
           <span>{film.rating}</span>
@@ -41,4 +45,8 @@ const MovieCard = ({film, match}) => {
   );
 }
 
+
 export default MovieCard;
+
+// 
+// 
