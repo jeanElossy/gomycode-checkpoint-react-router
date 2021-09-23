@@ -15,7 +15,7 @@ const MovieCard = ({ match, film}) => {
 
   return (
     <>
-      <div className="box position-relative ">
+      <div className="box position-relative">
           
           <Link to={`description/${film.id}`}>
             <Player 
