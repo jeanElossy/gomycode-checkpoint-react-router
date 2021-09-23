@@ -130,7 +130,7 @@ const MovieList = ({match}) => {
         </div>
       </div>
 
-      <Route exact path='/description/:id' render={(props) => <Description data={films} {...props}/>} />
+      <Route exact path='/home/description/:id' render={(props) => <Description data={films} {...props}/>} />
     </div>
   );
   

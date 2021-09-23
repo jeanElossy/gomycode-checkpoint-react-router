@@ -102,13 +102,10 @@ const App = () => {
     <>
       <Switch>
         <Route exact path="/home" component={MovieList} films={films} />
-        <Route exact path='/description/:id' render={(props) => <Description data={films} {...props}/>} />
+        <Route exact path='/home/description/:id' render={(props) => <Description data={films} {...props}/>} />
         <Route path="*"component={NotFound}/>
       </Switch>   
     </>  
   );
 }
-
-
-
 export default App;
