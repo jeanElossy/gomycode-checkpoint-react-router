@@ -1,21 +1,24 @@
 import React from 'react';
-//import { Player } from "video-react";
-import ReactPlayer from 'react-player'
+import { Player } from "video-react";
+//import ReactPlayer from 'react-player'
 import {Link, Route} from "react-router-dom";
 import Description from './Description';
 
 
-const MovieCard = ({ url, film, arr}) => {
+const MovieCard = ({ match, film}) => {
 
-//to={`${match.url}/${film.urlFilm}
-//console.log(url)
+
+  //const index = arr.findIndex
+//console.log(match)
+//console.log(...arr)
+
 
   return (
     <>
       <div className="box position-relative ">
           
-          <Link to={`${url.url}/${film.urlFilm}`}>
-            <ReactPlayer 
+          <Link to={`description/${film.id}`}>
+            <Player 
               url={film.urlFilm}
               controls={true}
               poster={film.urlPoster}
@@ -32,12 +35,6 @@ const MovieCard = ({ url, film, arr}) => {
           <span>{film.rating}</span>
         </div>
       </div>
-
-      <Route exact path={url} render={() => <Description />}/>
-
-      <Route exact path={`${url.url}/:filmId`} render={
-        ({match}) => <Description {...arr.find(p => p.id === match.params.filmId)}/>}/>
-      
     </>
     );
   }

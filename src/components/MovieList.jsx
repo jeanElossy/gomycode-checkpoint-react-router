@@ -4,13 +4,11 @@ import MovieCard from './MovieCard';
 import NavBar from './NavBar';
 import AddCard from './AddCard';
 import ReactStars from "react-rating-stars-component";
+import {Route} from "react-router-dom";
 import Description from './Description';
-import {Link, Route} from "react-router-dom";
 
 
 const MovieList = ({match}) => {
-
-  //console.log(match.url)
 
   const etoiles = <ReactStars />;
 
@@ -100,7 +98,6 @@ const MovieList = ({match}) => {
   const handleRating = (e) =>{
     setNum(e.target.value);
   } */
- 
 
   const handleAdd = (film) => {
     const newFilms = [...films];
@@ -116,7 +113,7 @@ const MovieList = ({match}) => {
         //searchRating={handleRating}
         // search={handleFilter}
       />
-      
+            
       <AddCard add={handleAdd} />
       <div className="container ">
         <div className="d-flex flex-wrap gap-5">
@@ -125,22 +122,16 @@ const MovieList = ({match}) => {
             .sort((a, b) => b.id - a.id)
             .map((film) => (
 
-              <Link to={`${match.url}/${film.id}`}>
-                <MovieCard 
-                  film={film} 
-                  key={film.id} 
-                  url={match} 
-                  arr={films}/>
-              </Link>
-
+            <MovieCard 
+              film={film} 
+              key={film.id} 
+              />
           ))}
         </div>
-        </div>
-
-        
-        
-        <Route path={`${match.url}/:filmId`}  render={(props) => <Description data={films} {...props} />}/>
       </div>
+
+      <Route exact path='/description/:id' render={(props) => <Description data={films} {...props}/>} />
+    </div>
   );
   
 };
