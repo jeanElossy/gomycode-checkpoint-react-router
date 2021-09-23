@@ -1,24 +1,17 @@
 import React from 'react';
-import { Player } from "video-react";
-//import ReactPlayer from 'react-player'
-import {Link, Route} from "react-router-dom";
-import Description from './Description';
+//import { Player } from "video-react";
+import ReactPlayer from 'react-player'
+import { Link } from "react-router-dom";
 
 
 const MovieCard = ({ match, film}) => {
-
-
-  //const index = arr.findIndex
-//console.log(match)
-//console.log(...arr)
-
 
   return (
     <>
       <div className="box position-relative">
           
           <Link to={`/home/description/${film.id}`}>
-            <Player 
+            <ReactPlayer 
               url={film.urlFilm}
               controls={true}
               poster={film.urlPoster}
@@ -28,13 +21,13 @@ const MovieCard = ({ match, film}) => {
               height='100%'
               BigPlayButton={true}
             />
+            <h1 className="h5 mt-4">{film.title}</h1>
           </Link>
           
-        <div className="d-flex mt-3 justify-content-between">
-          <h1 className="h5">{film.title}</h1>
+        
           <span>{film.rating}</span>
         </div>
-      </div>
+    
     </>
     );
   }

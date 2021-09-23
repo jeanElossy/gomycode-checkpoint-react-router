@@ -7,12 +7,10 @@ import {useState, useEffect} from "react";
 import ReactStars from "react-rating-stars-component";
 
 
-
 const App = () => {
+
   const etoiles = <ReactStars />;
-
   const [loader, setLoader] = useState(true);
-
   const [films, setFilms] = useState(
     [
       {
