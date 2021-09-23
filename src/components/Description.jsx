@@ -4,10 +4,10 @@ import NavBar from './NavBar';
 import ReactPlayer from 'react-player'
 
 
-export default function Description({match, data}) {
+export default function Description({match, linkAnnouncement}, description) {
 
-    let film= data.find(p => p.id === match.params.filmId);
-    console.log(film)
+    //let film= data;
+    console.log(match)
     
     return (
         <div className="container-fluid description ms-0">
@@ -18,7 +18,7 @@ export default function Description({match, data}) {
                     <div className="col-12 col-md-4 video__annonce">
                         
                             <ReactPlayer 
-                                url={film.linkAnnouncement}
+                                url={linkAnnouncement}
                                 controls={true}
                                 muted={true}
                                 className="video"
@@ -29,7 +29,7 @@ export default function Description({match, data}) {
                         
                     </div>
                     <div className="col-12 col-md-5 text-center text--description">
-                        <h1>{film.description}</h1>
+                        <h1>{description}</h1>
                     </div>
                     
                 </div>

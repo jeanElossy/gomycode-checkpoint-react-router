@@ -10,6 +10,8 @@ import {Link, Route} from "react-router-dom";
 
 const MovieList = ({match}) => {
 
+  //console.log(match.url)
+
   const etoiles = <ReactStars />;
 
   const [films, setFilms] = useState(
@@ -123,17 +125,22 @@ const MovieList = ({match}) => {
             .sort((a, b) => b.id - a.id)
             .map((film) => (
 
-              <Link to={`${match.url}/${film.urlFilm}`}>
-                <MovieCard film={film} key={film.id} />
-                
+              <Link to={`${match.url}/${film.id}`}>
+                <MovieCard 
+                  film={film} 
+                  key={film.id} 
+                  url={match} 
+                  arr={films}/>
               </Link>
 
           ))}
         </div>
-          <Route path={`${match.url}/:filmId`} render= {(props) => <Description  data={films} {...props}/>}/>
+        </div>
+
         
+        
+        <Route path={`${match.url}/:filmId`}  render={(props) => <Description data={films} {...props} />}/>
       </div>
-    </div>
   );
   
 };
