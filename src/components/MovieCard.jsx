@@ -9,8 +9,8 @@ const MovieCard = ({ match, film}) => {
   return (
     <>
       <div className="box position-relative">
-          
-          <Link to={`/home/description/${film.id}`}>
+                
+          <Link to={`/description/${film.id}`}>
             <ReactPlayer 
               url={film.urlFilm}
               controls={true}
@@ -19,7 +19,6 @@ const MovieCard = ({ match, film}) => {
               className="video"
               width='100%'
               height='100%'
-              BigPlayButton={true}
             />
             <h1 className="h5 mt-4">{film.title}</h1>
           </Link>

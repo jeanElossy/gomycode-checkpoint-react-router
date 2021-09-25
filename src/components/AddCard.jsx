@@ -1,27 +1,30 @@
 import React, { useState } from 'react'
-import ReacctStars from "react-rating-stars-component";
-
+import ReactStars from "react-rating-stars-component";
 
 const AddCard = ({add}) =>{
 
     //const [increment, setIncrement] = useState(0);
+
+    const etoiles = <ReactStars />
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [urlPoster, setUrlPoster] = useState("");
     const [urlFilm, setUrlFilm] = useState("");
-    
+    const [linkAnnoucement, setLinkAnnoucement] = useState("");
+
     /*const handleIncrement = (e) => {
         e.preventDefault();
         (increment < 5 ? setIncrement(increment + 1) : setIncrement(increment))
-     }*/
+    }*/
 
     const handleSubmit = (e) =>{
-        
         e.preventDefault();
+
         (title === "" 
             || description === "" 
             || urlPoster === "" 
             || urlFilm === ""
+            || linkAnnoucement === ""
             // || increment === 0
         ) ? alert("Veuillez renseigner tous les champs") : (
             add({
@@ -30,14 +33,18 @@ const AddCard = ({add}) =>{
             description,
             urlPoster,
             urlFilm,
+            linkAnnoucement,
+            etoiles
             //increment
         }))
         setTitle("")
         setDescription("")
         setUrlPoster("")
         setUrlFilm("")
+        setLinkAnnoucement("")
         //setIncrement(0)
     }
+
 
     return (
         <div className="add__film container mb-4">
@@ -85,11 +92,24 @@ const AddCard = ({add}) =>{
                         />
                     </div>
                 </div>
+                <div>
+                    <div class="input-group mb-3">
+                        <input 
+                            type="url" 
+                            id="homepage" 
+                            name="homepage" 
+                            className="form-control" 
+                            placeholder="Inserer url de votre bande d'annonce"
+                            onChange={(e) => setLinkAnnoucement(e.target.value)}
+                            value={linkAnnoucement}
+                        />
+                    </div>
+                </div>
                 <div className="d-flex align-items-center mb-2 justify-content-between flex-xs-column">
-                
+
                     <div>
                         <h5>Merci de noter votre film avant l'ajout.</h5>
-                        <ReacctStars />
+                        <ReactStars />
                     </div>
 
 

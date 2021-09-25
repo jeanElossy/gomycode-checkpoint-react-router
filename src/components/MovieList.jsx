@@ -4,11 +4,9 @@ import MovieCard from './MovieCard';
 import NavBar from './NavBar';
 import AddCard from './AddCard';
 import ReactStars from "react-rating-stars-component";
-import {Route} from "react-router-dom";
-import Description from './Description';
 
 
-const MovieList = ({match}) => {
+const MovieList = () => {
 
   const etoiles = <ReactStars />;
 
@@ -121,7 +119,6 @@ const MovieList = ({match}) => {
             .filter((film) => film.title.toLowerCase().includes(filter.toLocaleLowerCase()))
             .sort((a, b) => b.id - a.id)
             .map((film) => (
-
             <MovieCard 
               film={film} 
               key={film.id} 
@@ -130,7 +127,6 @@ const MovieList = ({match}) => {
         </div>
       </div>
 
-      <Route exact path='/home/description/:id' render={(props) => <Description data={films} {...props}/>} />
     </div>
   );
   

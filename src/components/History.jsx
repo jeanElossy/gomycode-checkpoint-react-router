@@ -21,5 +21,3 @@ const HomeButton = () => {
     );
 }
 export default HomeButton;
-
-// <router-link :to="{name: 'landing'}" tag="li" exact v-on:click.native="close()">Home</router-link>

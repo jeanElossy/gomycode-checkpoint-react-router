@@ -9,7 +9,7 @@ const NavBar = ({search, searchRating}) => {
       <nav className="navbar container-fluid header p-3 ">
           <div className="container-fluid">
               <div className="text">
-                  <NavLink exact to="/Home" className="navbar-brand line">FILMS</NavLink>
+                  <NavLink exact to="/dashbord" className="navbar-brand line">FILMS</NavLink>
               </div>
               <form className="d-flex">
                   <input 

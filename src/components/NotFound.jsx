@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function NotFound() {
     return (
@@ -9,7 +9,7 @@ export default function NotFound() {
                 <h2 className="h4">Erreur 404 !</h2>
             </div>
             <div>
-                <Link exact to="/home">
+                <Link exact to="/dashbord">
                     <button className="btn btn-primary p-2" >Aller sur la page d'acceuil</button>
                 </Link>
             </div>

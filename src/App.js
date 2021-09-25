@@ -5,7 +5,7 @@ import NotFound from './components/NotFound';
 import Loading from './components/Loading';
 import {useState, useEffect} from "react";
 import ReactStars from "react-rating-stars-component";
-
+import NavBar from "./components/NavBar";
 
 const App = () => {
 
@@ -98,11 +98,17 @@ const App = () => {
     <Loading />
   ) : (
     <>
+      <NavBar />
+
+      
       <Switch>
-        <Route exact path="/home" component={MovieList} films={films} />
-        <Route exact path='/home/description/:id' render={(props) => <Description data={films} {...props}/>} />
-        <Route path="*"component={NotFound}/>
-      </Switch>   
+        <Route exact path="/dashbord" component={MovieList} />
+        <Route exact path="/description/:id" render={(props) => <Description data={films} {...props}/>} />
+        <Route path="*" component={NotFound}/>
+      </Switch> 
+      
+      
+
     </>  
   );
 }
